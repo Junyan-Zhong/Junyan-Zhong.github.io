@@ -224,3 +224,78 @@ img, video, iframe {
     font-size: 1.28rem;
   }
 }
+
+
+/* Law School Days */
+.lawschool-page h1 { margin-bottom: 14px; }
+
+.note-strip {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: min(86vw, 680px);
+  gap: 24px;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  scroll-snap-type: inline mandatory;
+  padding: 10px 2px 24px;
+  scrollbar-width: thin;
+}
+
+.note-card {
+  scroll-snap-align: start;
+  border-top: 1px solid var(--rule);
+  padding-top: 20px;
+}
+
+.note-card time {
+  display: block;
+  color: var(--muted);
+  font-size: .82rem;
+  letter-spacing: .05em;
+  margin-bottom: 22px;
+}
+
+.note-card hr {
+  border: 0;
+  border-top: 1px solid var(--rule);
+  margin: 30px 0;
+}
+
+.note-card details {
+  margin-top: 28px;
+  border-top: 1px solid var(--rule);
+  padding-top: 14px;
+}
+
+.note-card summary {
+  cursor: pointer;
+  color: var(--muted);
+  font-size: .86rem;
+  user-select: none;
+}
+
+.note-card details p {
+  margin-top: 16px;
+  color: #4d4a44;
+  font-family: Georgia, "Times New Roman", "Songti SC", "STSong", serif;
+  line-height: 1.8;
+}
+
+.strip-hint {
+  color: var(--muted);
+  font-size: .78rem;
+  text-align: right;
+  margin-top: 4px;
+}
+
+@media (min-width: 760px) {
+  .note-strip { grid-auto-columns: min(78vw, 680px); }
+}
+
+@media (max-width: 700px) {
+  .note-strip {
+    grid-auto-columns: calc(100vw - 34px);
+    gap: 18px;
+    margin-right: -14px;
+  }
+}
