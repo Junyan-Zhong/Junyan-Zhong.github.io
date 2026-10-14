@@ -2,12 +2,6 @@ name: Generate Law School Days audio
 
 on:
   workflow_dispatch:
-  push:
-    branches: [main]
-    paths:
-      - "law-school-days.html"
-      - "scripts/generate_lawschool_audio.py"
-      - ".github/workflows/generate-lawschool-audio.yml"
 
 permissions:
   contents: write
