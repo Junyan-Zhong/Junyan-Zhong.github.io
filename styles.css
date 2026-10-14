@@ -326,3 +326,47 @@ img, video, iframe {
     margin-bottom: 32px;
   }
 }
+
+
+/* Selected writing audio page */
+.audio-page .lede {
+  margin-bottom: 36px;
+}
+
+.audio-essay {
+  border-top: 1px solid var(--rule);
+  padding-top: 28px;
+  margin-top: 36px;
+}
+
+.audio-essay:first-of-type {
+  margin-top: 0;
+}
+
+.audio-essay h2 {
+  margin-bottom: 10px;
+}
+
+.audio-essay h2 a {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.audio-essay h2 a:hover {
+  text-decoration: underline;
+}
+
+.audio-essay audio,
+.audio-reader audio {
+  display: block;
+  width: 100%;
+  max-width: 620px;
+  margin-top: 16px;
+}
+
+@media (max-width: 700px) {
+  .audio-essay {
+    margin-top: 30px;
+    padding-top: 22px;
+  }
+}
