@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://junyan-zhong.github.io/sitemap.xml
