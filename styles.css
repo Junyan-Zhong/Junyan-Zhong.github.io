@@ -230,21 +230,19 @@ img, video, iframe {
 .lawschool-page h1 { margin-bottom: 14px; }
 
 .note-strip {
-  display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: min(86vw, 680px);
-  gap: 24px;
-  overflow-x: auto;
-  overscroll-behavior-inline: contain;
-  scroll-snap-type: inline mandatory;
-  padding: 10px 2px 24px;
-  scrollbar-width: thin;
+  display: block;
+  overflow: visible;
+  padding: 0;
 }
 
 .note-card {
-  scroll-snap-align: start;
   border-top: 1px solid var(--rule);
-  padding-top: 20px;
+  padding-top: 24px;
+  margin-top: 42px;
+}
+
+.note-card:first-child {
+  margin-top: 0;
 }
 
 .note-card time {
@@ -281,21 +279,9 @@ img, video, iframe {
   line-height: 1.8;
 }
 
-.strip-hint {
-  color: var(--muted);
-  font-size: .78rem;
-  text-align: right;
-  margin-top: 4px;
-}
-
-@media (min-width: 760px) {
-  .note-strip { grid-auto-columns: min(78vw, 680px); }
-}
-
 @media (max-width: 700px) {
-  .note-strip {
-    grid-auto-columns: calc(100vw - 34px);
-    gap: 18px;
-    margin-right: -14px;
+  .note-card {
+    margin-top: 34px;
+    padding-top: 20px;
   }
 }
