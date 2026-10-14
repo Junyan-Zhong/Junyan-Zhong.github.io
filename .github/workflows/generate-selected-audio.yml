@@ -38,5 +38,6 @@ jobs:
             echo "No audio changes to commit."
           else
             git commit -m "Generate selected writing narration"
+            git pull --rebase origin main
             git push
           fi
