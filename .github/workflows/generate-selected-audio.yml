@@ -2,14 +2,6 @@ name: Generate Selected Writing audio
 
 on:
   workflow_dispatch:
-  push:
-    branches: [main]
-    paths:
-      - "sunday-in-the-park-with-george.html"
-      - "the-last-five-years.html"
-      - "sentimental-value.html"
-      - "scripts/generate_selected_audio.py"
-      - ".github/workflows/generate-selected-audio.yml"
 
 permissions:
   contents: write
