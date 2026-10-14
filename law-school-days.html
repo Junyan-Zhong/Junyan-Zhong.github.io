@@ -27,8 +27,11 @@
     <h1>Law School Days</h1>
     <p class="lede">Notes from law school and the years around it. The original Chinese is preserved beneath each translation.</p>
     <div class="audio-reader" aria-label="Audio version">
-      <button id="listen-all" type="button" aria-pressed="false">▶ Listen to all</button>
-      <span id="audio-status" class="muted" aria-live="polite"></span>
+      <audio controls preload="none">
+        <source src="law-school-days.mp3" type="audio/mpeg" />
+        Your browser does not support the audio player.
+      </audio>
+      <span class="muted">AI-narrated audio · OpenAI voice</span>
     </div>
 
     <div class="note-strip" aria-label="Law School Days entries">
@@ -336,104 +339,5 @@
   </main>
 
   <footer class="wrap"><p>© Junyan Zhong</p></footer>
-
-  <script>
-    (function () {
-      const button = document.getElementById("listen-all");
-      const status = document.getElementById("audio-status");
-
-      if (!button || !("speechSynthesis" in window)) {
-        if (button) {
-          button.disabled = true;
-          button.textContent = "Audio unavailable";
-        }
-        return;
-      }
-
-      let queue = [];
-      let index = 0;
-      let speaking = false;
-      let paused = false;
-
-      function buildQueue() {
-        const items = [];
-        document.querySelectorAll(".note-card").forEach(function (card) {
-          const date = card.querySelector("time");
-          if (date) items.push(date.textContent.trim());
-
-          card.querySelectorAll(":scope > p, :scope > blockquote p").forEach(function (p) {
-            const text = p.textContent.trim();
-            if (text) items.push(text);
-          });
-        });
-        return items;
-      }
-
-      function updateButton() {
-        if (!speaking) {
-          button.textContent = "▶ Listen to all";
-          button.setAttribute("aria-pressed", "false");
-          status.textContent = "";
-        } else if (paused) {
-          button.textContent = "▶ Resume";
-          button.setAttribute("aria-pressed", "true");
-          status.textContent = "Paused";
-        } else {
-          button.textContent = "❚❚ Pause";
-          button.setAttribute("aria-pressed", "true");
-          status.textContent = "Playing";
-        }
-      }
-
-      function speakNext() {
-        if (!speaking || index >= queue.length) {
-          speaking = false;
-          paused = false;
-          index = 0;
-          updateButton();
-          return;
-        }
-
-        const utterance = new SpeechSynthesisUtterance(queue[index]);
-        utterance.lang = "en-US";
-        utterance.rate = 0.95;
-        utterance.onend = function () {
-          index += 1;
-          speakNext();
-        };
-        utterance.onerror = function () {
-          index += 1;
-          speakNext();
-        };
-        window.speechSynthesis.speak(utterance);
-      }
-
-      button.addEventListener("click", function () {
-        if (!speaking) {
-          window.speechSynthesis.cancel();
-          queue = buildQueue();
-          index = 0;
-          speaking = true;
-          paused = false;
-          updateButton();
-          speakNext();
-          return;
-        }
-
-        if (paused) {
-          window.speechSynthesis.resume();
-          paused = false;
-        } else {
-          window.speechSynthesis.pause();
-          paused = true;
-        }
-        updateButton();
-      });
-
-      window.addEventListener("beforeunload", function () {
-        window.speechSynthesis.cancel();
-      });
-    })();
-  </script>
 </body>
 </html>
