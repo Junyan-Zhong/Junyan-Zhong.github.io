@@ -96,3 +96,36 @@ footer {
   .hero { padding: 66px 0 54px; }
   nav { gap: 10px 14px; }
 }
+.article-page {
+  padding-top: 70px;
+  padding-bottom: 40px;
+}
+.article-page h1 {
+  font-size: clamp(2.2rem, 6vw, 4rem);
+  margin-bottom: 18px;
+}
+.article-page .lede {
+  margin-bottom: 52px;
+  color: var(--muted);
+}
+.article-page blockquote {
+  margin: 34px 0;
+  padding-left: 22px;
+  border-left: 2px solid var(--rule);
+  font-style: italic;
+}
+.source-note {
+  margin-top: 48px;
+  color: var(--muted);
+  font-size: .9rem;
+}
+.writing-link h3 a {
+  color: var(--text);
+  text-decoration: none;
+}
+.writing-link h3 a:hover {
+  text-decoration: underline;
+}
+.writing-link .eyebrow {
+  margin-bottom: 8px;
+}
