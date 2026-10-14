@@ -94,8 +94,22 @@
     <section id="correspondence">
       <h2>Correspondence</h2>
       <p>If something here makes you want to write back, I would be glad to hear from you.</p>
-      <p class="muted">Add a public email address here when you are ready.</p>
+      <p><a id="email-link" href="#" rel="nofollow">Write to me</a></p>
+      <noscript><p class="muted">Junyan.Zhong [at] outlook [dot] com</p></noscript>
     </section>
+
+    <script>
+      (function () {
+        const user = "Junyan.Zhong";
+        const domain = "outlook.com";
+        const address = user + "@" + domain;
+        const link = document.getElementById("email-link");
+        if (link) {
+          link.href = "mailto:" + address;
+          link.textContent = address;
+        }
+      })();
+    </script>
   </main>
 
   <footer class="wrap">
